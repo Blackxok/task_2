@@ -2,39 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Umumiy sozlamalar */
 body {
 	font-family: 'Inter', sans-serif;
-	font-size: 30px;
+	font-size: 18px;
+	background: linear-gradient(116.82deg, #e9e9e9 0%, #a5beca 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
+/* Custom theme o'zgaruvchilari */
 @layer base {
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 240 10% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 240 10% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 240 10% 3.9%;
-		--primary: 240 5.9% 10%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 240 4.8% 95.9%;
-		--secondary-foreground: 240 5.9% 10%;
-		--muted: 240 4.8% 95.9%;
-		--muted-foreground: 240 3.8% 46.1%;
-		--accent: 240 4.8% 95.9%;
-		--accent-foreground: 240 5.9% 10%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 240 5.9% 90%;
-		--input: 240 5.9% 90%;
-		--ring: 240 10% 3.9%;
-		--chart-1: 12 76% 61%;
-		--chart-2: 173 58% 39%;
-		--chart-3: 197 37% 24%;
-		--chart-4: 43 74% 66%;
-		--chart-5: 27 87% 67%;
+		--background: 100%;
+		--foreground: 10%;
+		--card: 100%;
+		--card-foreground: 10%;
+		--primary: 10%;
+		--primary-foreground: 100%;
+		--secondary: 95%;
+		--secondary-foreground: 10%;
+		--muted: 95%;
+		--muted-foreground: 46%;
+		--accent: 95%;
+		--accent-foreground: 10%;
+		--border: 90%;
 		--radius: 0.5rem;
-		/* /// */
+		/* Ranglar */
 		--yellow: rgba(251, 188, 4, 0.8);
 		--qizil: rgba(165, 14, 14, 1);
 		--qora: rgba(32, 33, 36, 1);
@@ -45,35 +40,34 @@ body {
 		--xLightBlue: rgba(241, 243, 244, 1);
 	}
 
+	/* Dark Mode uchun o'zgaruvchilar */
 	.dark {
-		--background: 240 10% 3.9%;
-		--foreground: 0 0% 98%;
-		--card: 240 10% 3.9%;
-		--card-foreground: 0 0% 98%;
-		--popover: 240 10% 3.9%;
-		--popover-foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 240 5.9% 10%;
-		--secondary: 240 3.7% 15.9%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 240 3.7% 15.9%;
-		--muted-foreground: 240 5% 64.9%;
-		--accent: 240 3.7% 15.9%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 240 3.7% 15.9%;
-		--input: 240 3.7% 15.9%;
-		--ring: 240 4.9% 83.9%;
-		--chart-1: 220 70% 50%;
-		--chart-2: 160 60% 45%;
-		--chart-3: 30 80% 55%;
-		--chart-4: 280 65% 60%;
-		--chart-5: 340 75% 55%;
+		--background: 10%;
+		--foreground: 98%;
+		--card: 15%;
+		--card-foreground: 98%;
+		--primary: 98%;
+		--primary-foreground: 10%;
+		--secondary: 15%;
+		--secondary-foreground: 98%;
+		--muted: 15%;
+		--muted-foreground: 64%;
+		--accent: 15%;
+		--accent-foreground: 98%;
+		--border: 15%;
+		--radius: 0.5rem;
+		/* Ranglar */
+		--yellow: rgba(251, 188, 4, 0.8);
+		--qizil: rgba(165, 14, 14, 1);
+		--qora: rgba(32, 33, 36, 1);
+		--gray: rgba(154, 160, 166, 1);
+		--kok: rgba(23, 78, 166, 1);
+		--moviy: rgba(66, 133, 244, 1);
+		--LightBlue: rgba(210, 227, 252, 1);
+		--xLightBlue: rgb(0, 0, 0);
 	}
-}
 
-@layer base {
+	/* Umumiy elementlarga qo'llash */
 	* {
 		@apply border-border;
 	}

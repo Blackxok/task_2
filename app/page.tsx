@@ -1,9 +1,5 @@
-import Navbar from '@/layout/navbar/navbar'
+import Dashboard from './components/Dashboard'
 
 export default function Home() {
-	return (
-		<>
-			<Navbar />
-		</>
-	)
+	return <Dashboard />
 }
