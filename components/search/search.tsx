@@ -17,6 +17,9 @@ export default function Search() {
 					src='/filter.svg'
 					className='h-8 w-8 text-gray-500 transform translate-x-[-15px]'
 					alt='Kategory'
+					layout='responsive'
+					width={8}
+					height={8}
 				/>
 				Kategoriyalar
 			</button>

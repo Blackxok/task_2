@@ -2,11 +2,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FaMoon } from 'react-icons/fa6'
 import { FiBell, FiSearch } from 'react-icons/fi'
 import styles from './navbar.module.css'
-import Image from 'next/image'
 
 const Navbar = () => {
 	// const [darkMode, setDarkMode] = useState(false)
@@ -15,7 +15,7 @@ const Navbar = () => {
 		// <nav className={cn(styles.navbar, { [styles.dark]: darkMode })}>
 		<nav className={styles.navbar}>
 			<Link href={'/'} className={styles.logo}>
-				<Image src='/logo.png' alt='Logo' />
+				<Image src='/logo.png' alt='Logo' width={170} height={45} />
 			</Link>
 			<div className={styles.userInfo}>
 				<span className={styles.userName}>Xush kelipsiz: John Doe</span>

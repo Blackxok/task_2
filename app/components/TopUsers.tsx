@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import { FC } from 'react'
 import { TopUser } from '../types'
-import Image from 'next/image'
 
 interface TopUsersProps {
 	users: TopUser[]
@@ -22,7 +22,13 @@ const TopUsers: FC<TopUsersProps> = ({ users }) => {
 						className='flex items-center justify-between py-2 m-0 border-t border-gray-500'
 					>
 						<div className='flex items-center'>
-							<Image src='/next.svg' className='w-8 h-8 bg-gray-200 rounded-full' alt='user' />
+							<Image
+								src='/next.svg'
+								className='w-8 h-8 bg-gray-200 rounded-full'
+								alt='user'
+								width={8}
+								height={8}
+							/>
 							<p className='font-medium ml-5'>{user.name}</p>
 						</div>
 						<p className='text-sm  mr-8'>{user.code}</p>
