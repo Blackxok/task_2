@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 export default function Search() {
@@ -12,7 +13,11 @@ export default function Search() {
 				/>
 			</div>
 			<button className='flex items-center justify-between gap-2 bg-white  rounded-full px-10 py-1 shadow hover:bg-gray-100 hover:text-gray-800'>
-				<img src='/filter.svg' className='h-8 w-8 text-gray-500 transform translate-x-[-15px]' />
+				<Image
+					src='/filter.svg'
+					className='h-8 w-8 text-gray-500 transform translate-x-[-15px]'
+					alt='Kategory'
+				/>
 				Kategoriyalar
 			</button>
 		</div>

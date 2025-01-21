@@ -1,4 +1,5 @@
 import { IProduct } from '@/app/types'
+import Image from 'next/image'
 import React from 'react'
 
 interface ProductBoxProps {
@@ -9,8 +10,8 @@ const ProductBox: React.FC<ProductBoxProps> = ({ product }) => {
 	return (
 		<div className='bg-white rounded-3xl p-4 shadow-md max-w-sm relative'>
 			<div className='mb-3'>
-				<img
-					src={`/images/image.png`}
+				<Image
+					src='/images/image.png'
 					alt={product.name}
 					className='w-full aspect-[4/3] object-cover rounded-3xl'
 				/>

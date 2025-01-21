@@ -53,6 +53,6 @@ export const products: IProduct[] = [
 		price: 10,
 		rating: 4.3,
 		reviews: 80,
-		category: 'O‘yinchoqlar',
+		category: 'Oyinchoqlar',
 	},
 ]

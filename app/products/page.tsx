@@ -12,7 +12,7 @@ const categories = [
 	'Kiyim-kechak',
 	'Sport anjomlari',
 	'Kitoblar',
-	'O‘yinchoqlar',
+	'Oyinchoqlar',
 ]
 
 export default function ProductsPage() {

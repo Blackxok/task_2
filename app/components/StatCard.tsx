@@ -1,6 +1,7 @@
 import { TrendingDown, TrendingUp } from 'lucide-react'
 import { FC } from 'react'
 import { IStatCard } from '../types'
+import Image from 'next/image'
 
 interface StatCardProps {
 	data: IStatCard
@@ -13,7 +14,7 @@ const StatCard: FC<StatCardProps> = ({ data }) => {
 		<div className='bg-[rgba(255,245,235,1)] p-4 rounded-3xl shadow'>
 			<div className='flex flex-col'>
 				<div className='flex flex-row'>
-					<img src='/dolar.svg' alt={data.title} className='w-12 h-12 rounded-full' />
+					<Image src='/dolar.svg' alt={data.title} className='w-12 h-12 rounded-full' />
 					<div className='mx-3'>
 						<h3 className='text-2xl font-bold'>{data.value}</h3>
 						<p className='text-gray-500 text-sm'>{data.title}</p>
