@@ -8,7 +8,7 @@ const Sidebar = () => {
 	const pathname = usePathname()
 
 	return (
-		<div className='w-64 h-screen p-4'>
+		<div className='!w-80 h-screen p-4'>
 			<nav className='space-y-2'>
 				{MENU_ITEMS.map(item => {
 					const isActive = pathname === item.path
