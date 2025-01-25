@@ -8,7 +8,7 @@ const EditProduct: React.FC = () => {
 		<div className='bg-white rounded-3xl p-6 shadow-lg relative'>
 			<div className='flex items-center justify-between'>
 				<span>Mavjud mahsulotlarni tahrirlash</span>
-				<SearchBar className='bg-slate-300' />
+				<SearchBar className='bg-gray-300' />
 			</div>
 			<div className=' overflow-hidden min-h-[430px] flex gap-5 mt-3'>
 				<div className=' flex items-center justify-center bg-slate-200 rounded-3xl w-[30%]'>

@@ -9,8 +9,6 @@ export default function AddProductPage() {
 		return currentProduct.rating > maxProduct.rating ? currentProduct : maxProduct
 	}, products[0])
 
-	console.log(highestRatedProduct)
-
 	return (
 		<div>
 			<Search />

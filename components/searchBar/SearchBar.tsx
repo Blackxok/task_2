@@ -18,9 +18,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder = 'Search...', classN
 			<input
 				type='text'
 				placeholder={placeholder}
-				className='flex-grow bg-transparent border-none outline-none text-[20px] text-gray-800 placeholder-gray-400'
+				className='flex-grow bg-transparent border-none outline-none text-[20px] text-black placeholder-gray-500'
 			/>
-			<FiSearch className='text-gray-400 text-xl' />
+			<FiSearch className='text-gray-500 text-2xl' />
 		</div>
 	)
 }
