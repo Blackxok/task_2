@@ -16,13 +16,12 @@ const categories = [
 ]
 
 export default function ProductsPage() {
-	const [selectedCategory, setSelectedCategory] = useState<string>('Barchasi') // Default "Barchasi"
+	const [selectedCategory, setSelectedCategory] = useState<string>('Barchasi')
 
 	const handleCategoryClick = (category: string) => {
 		setSelectedCategory(category)
 	}
 
-	// Filtrlangan mahsulotlar
 	const filteredProducts =
 		selectedCategory === 'Barchasi'
 			? products // Barcha mahsulotlar
@@ -30,10 +29,7 @@ export default function ProductsPage() {
 
 	return (
 		<div>
-			{/* Qidiruv */}
 			<Search />
-
-			{/* Kategoriyalar */}
 			<div className='flex gap-4 overflow-x-auto my-6'>
 				{categories.map(category => (
 					<span
@@ -47,8 +43,6 @@ export default function ProductsPage() {
 					</span>
 				))}
 			</div>
-
-			{/* Filtrlangan ProductBox */}
 			<div className='grid grid-cols-3 gap-6'>
 				{filteredProducts.map(product => (
 					<ProductBox key={product.code} product={product} />

@@ -1,11 +1,11 @@
 'use client'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaMoon } from 'react-icons/fa6'
-import { FiBell, FiSearch } from 'react-icons/fi'
+import { FiBell } from 'react-icons/fi'
+import SearchBar from '../searchBar/SearchBar'
 import styles from './navbar.module.css'
 
 const Navbar = () => {
@@ -21,10 +21,7 @@ const Navbar = () => {
 				<span className={styles.userName}>Xush kelipsiz: John Doe</span>
 				<span className={styles.userId}>#12345</span>
 			</div>
-			<div className={styles.search}>
-				<Input type='text' placeholder='Search...' />
-				<FiSearch />
-			</div>
+			<SearchBar />
 			<div className={styles.settings}>
 				{/* <Button onClick={() => setDarkMode(!darkMode)} variant='link'>
 					{darkMode ? <FaSun color='white' /> : <FaMoon />}
@@ -37,7 +34,7 @@ const Navbar = () => {
 				</Button>
 				<div className={styles.avatar}>
 					<Avatar>
-						<AvatarImage src='/avatar.jpg' alt='User Avatar' />
+						<AvatarImage src='/public/dolar.svg' alt='User Avatar' />
 						<AvatarFallback>A</AvatarFallback>
 					</Avatar>
 				</div>

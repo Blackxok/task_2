@@ -1,24 +1,22 @@
-import { IProduct } from '@/app/types'
 import clsx from 'clsx' // Dynamic class merging
-import Image from 'next/image'
 import React from 'react'
+import { FaPlus } from 'react-icons/fa6'
 
-interface ProductBoxProps {
-	product: IProduct
-	className?: string
-}
+const AddProductBox: React.FC = () => {
+	const product = {
+		name: '...',
+		code: '',
+		remaining: 0,
+		price: 0,
+		rating: 0,
+		reviews: 0,
+		category: '',
+	}
 
-const ProductBox: React.FC<ProductBoxProps> = ({ product, className }) => {
 	return (
-		<div className={clsx('bg-white rounded-3xl p-6 shadow-lg relative overflow-hidden', className)}>
-			<div className='mb-4'>
-				<Image
-					src='/images/image.png'
-					alt={product.name}
-					className='w-full aspect-[4/3] object-cover rounded-2xl'
-					width={400}
-					height={300}
-				/>
+		<div className={clsx('bg-white rounded-3xl p-6 shadow-lg relative overflow-hidden h-full')}>
+			<div className='mb-4 flex items-center justify-center bg-slate-200 rounded-3xl w-full aspect-[4/3]'>
+				<FaPlus size={145} />
 			</div>
 			<div className='relative'>
 				<div className='flex flex-col'>
@@ -45,4 +43,4 @@ const ProductBox: React.FC<ProductBoxProps> = ({ product, className }) => {
 	)
 }
 
-export default ProductBox
+export default AddProductBox
