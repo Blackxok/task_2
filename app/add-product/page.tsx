@@ -13,8 +13,8 @@ export default function AddProductPage() {
 		<div>
 			<Search />
 			<div className='flex items-center flex-col gap-5 mt-5'>
-				<div className='w-full flex flex-col md:flex-row gap-5 '>
-					<div className='w-full md:w-1/2 '>
+				<div className='w-full flex flex-col gap-5 md:flex-row md:gap-10'>
+					<div className='w-full md:w-1/2'>
 						<AddProductBox />
 					</div>
 					<div className='w-full md:w-1/2'>

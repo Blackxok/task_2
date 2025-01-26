@@ -1,8 +1,8 @@
 'use client'
-
 import {
 	CategoryScale,
 	Chart as ChartJS,
+	ChartOptions,
 	Legend,
 	LinearScale,
 	LineElement,
@@ -17,7 +17,7 @@ import TopUsers from './TopUsers'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
 	const stats: StatCardType[] = [
 		{ title: 'Umumiy daromad', value: '$5,000', change: 1.87 },
 		{ title: 'Sotilgan mahsulotlar soni', value: 1423, change: 0.5 },
@@ -50,8 +50,9 @@ const Dashboard = () => {
 		],
 	}
 
-	const chartOptions = {
+	const chartOptions: ChartOptions<'line'> = {
 		responsive: true,
+		maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: 'bottom' as const,
@@ -65,21 +66,21 @@ const Dashboard = () => {
 	}
 
 	return (
-		<div className='min-h-screen'>
-			<div className='grid grid-cols-12 gap-6'>
-				<div className='col-span-6 space-y-6'>
-					<div className='grid grid-cols-1 gap-6'>
+		<div className='min-h-screen p-2 md:p-4'>
+			<div className='grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6'>
+				<div className='col-span-1 md:col-span-6 space-y-4'>
+					<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4'>
 						{stats.map(stat => (
 							<StatCard key={stat.title} data={stat} />
 						))}
 					</div>
 				</div>
-				<div className='col-span-6'>
+				<div className='col-span-1 md:col-span-6'>
 					<TopUsers users={topUsers} />
 				</div>
 			</div>
-			<div className='bg-white rounded-lg shadow p-6 mt-6 w-full'>
-				<h3 className='font-semibold mb-4'>Kunlik hisobot</h3>
+			<div className='bg-white rounded-3xl shadow p-4 md:p-6 mt-4 md:mt-6 w-full h-64 md:h-96'>
+				<h3 className='font-semibold text-black'>Kunlik hisobot</h3>
 				<Line data={chartData} options={chartOptions} />
 			</div>
 		</div>

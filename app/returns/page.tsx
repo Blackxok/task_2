@@ -1,11 +1,10 @@
 'use client'
 import ProductBox from '@/components/productBox/productBox'
 import Search from '@/components/search/search'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
 import { products } from '../constants/product'
 
-// Import Chart.js components
 import {
 	CategoryScale,
 	Chart as ChartJS,
@@ -18,7 +17,6 @@ import {
 } from 'chart.js'
 import { FaRegCalendarXmark } from 'react-icons/fa6'
 
-// Register the components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
 const chartData = {
@@ -54,13 +52,9 @@ const chartOptions = {
 }
 
 export default function ReturnsPage() {
-	const [isLoading, setIsLoading] = useState(true)
-
 	// Simulate async loading of products or data
 	useEffect(() => {
-		setTimeout(() => {
-			setIsLoading(false)
-		}, 1000) // Simulate 1 second loading time
+		setTimeout(() => {}, 1000) // Simulate 1 second loading time
 	}, [])
 
 	return (
@@ -68,15 +62,11 @@ export default function ReturnsPage() {
 			<Search />
 			<div className='flex items-center flex-col gap-5 mt-5'>
 				{/* Show loading state */}
-				{isLoading ? (
-					<div className='text-center py-6'>Loading products...</div>
-				) : (
-					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-						{products.map(product => (
-							<ProductBox key={product.code} product={product} />
-						))}
-					</div>
-				)}
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+					{products.map(product => (
+						<ProductBox key={product.code} product={product} />
+					))}
+				</div>
 				<div className='bg-white rounded-lg shadow p-6 mt-6 w-full'>
 					<div className='flex items-center justify-between'>
 						<h3 className='font-semibold mb-4'>Qaytish statistikasi</h3>

@@ -18,9 +18,11 @@ export default function RootLayout({
 			<body className='antialiased'>
 				<div className='flex flex-col h-screen'>
 					<Navbar />
-					<div className='flex flex-1 px-[10px]'>
-						<Sidebar />
-						<main className='flex-1 p-5'>{children}</main>
+					<div className='flex flex-col md:flex-row flex-1 px-2 md:px-[10px]'>
+						<div className='md:w-80 w-full'>
+							<Sidebar />
+						</div>
+						<main className='flex-1 p-2 md:p-5'>{children}</main>
 					</div>
 				</div>
 			</body>

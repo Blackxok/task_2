@@ -1,4 +1,4 @@
-import clsx from 'clsx' // For merging class names
+import classNames from 'classnames'
 import React from 'react'
 import { FiSearch } from 'react-icons/fi'
 
@@ -10,8 +10,8 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder = 'Search...', className }) => {
 	return (
 		<div
-			className={clsx(
-				'h-[56px] px-5 py-2 bg-white rounded-full flex items-center shadow-sm space-x-2',
+			className={classNames(
+				'h-[56px] px-5 py-2 bg-gray-200 rounded-full flex items-center shadow-sm space-x-2',
 				className,
 			)}
 		>

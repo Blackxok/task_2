@@ -1,8 +1,21 @@
+import Search from '@/components/search/search'
+import { products } from '../constants/product'
+import ReturnsLeft from './ReturnsLeft'
+
 export default function NotificationsPage() {
 	return (
-		<div className='bg-white rounded-lg shadow p-6'>
-			<h1 className='text-2xl font-bold mb-4'>Bildirish nomalar</h1>
-			{/* Notifications content */}
+		<div className=''>
+			<Search />
+			<ReturnsLeft
+				products={products}
+				name='Kam qolgan mahsulotlar'
+				buttonStyle='border border-gray-400'
+			/>
+			<ReturnsLeft
+				products={products}
+				name='Qaytgan mahsulotlar '
+				buttonStyle='bg-red-500 text-white'
+			/>
 		</div>
 	)
 }
