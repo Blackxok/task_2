@@ -1,5 +1,5 @@
 import AddProductBox from '@/components/addProduct/AddProductBox'
-import EditProduct from '@/components/addProduct/EditProduct'
+import EditProduct from '@/components/editProduct/editProduct'
 import ProductBox from '@/components/productBox/productBox'
 import Search from '@/components/search/search'
 import { products } from '../constants/product'
@@ -22,7 +22,7 @@ export default function AddProductPage() {
 					</div>
 				</div>
 				<div className='w-full'>
-					<EditProduct />
+					<EditProduct title='Mavjud mahsulotlarni tahrirlash' />
 				</div>
 			</div>
 		</div>

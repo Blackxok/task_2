@@ -3,11 +3,14 @@ import { FaImage } from 'react-icons/fa6'
 import SearchBar from '../searchBar/SearchBar'
 import { Button } from '../ui/button'
 
-const EditProduct: React.FC = () => {
+type EditProductProps = {
+	title: string
+}
+const EditProduct: React.FC<EditProductProps> = ({ title }) => {
 	return (
 		<div className='bg-white rounded-3xl p-6 shadow-lg relative'>
 			<div className='flex items-center justify-between'>
-				<span>Mavjud mahsulotlarni tahrirlash</span>
+				<span>{title}</span>
 				<SearchBar className='bg-gray-300' />
 			</div>
 			<div className=' overflow-hidden min-h-[430px] flex gap-5 mt-3'>
@@ -40,7 +43,7 @@ const EditProduct: React.FC = () => {
 						variant='outline'
 						className='w-32 rounded-full border-2  border-black text-black hover:border-blue-600 hover:bg-blue-600 hover:text-white'
 					>
-						Saqlash
+						O'chirish
 					</Button>
 					<Button
 						variant='outline'
