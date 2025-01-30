@@ -66,20 +66,26 @@ const Dashboard: React.FC = () => {
 	}
 
 	return (
-		<div className='min-h-screen p-2 md:p-4'>
-			<div className='grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6'>
-				<div className='col-span-1 md:col-span-6 space-y-4'>
-					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4'>
+		<div className='min-h-screen'>
+			{/* Statistika va Top Users bo‘limi */}
+			<div className='flex flex-col lg:flex-row gap-5 items-center'>
+				{/* Statistika (6 ustun) */}
+				<div className='md:col-span-6 space-y-4 w-full'>
+					<div className='flex flex-col gap-5'>
 						{stats.map(stat => (
 							<StatCard key={stat.title} data={stat} />
 						))}
 					</div>
 				</div>
-				<div className='col-span-1 md:col-span-6'>
+
+				{/* Top mahsulotlar (6 ustun) */}
+				<div className='md:col-span-6 w-full'>
 					<TopUsers users={topUsers} />
 				</div>
 			</div>
-			<div className='bg-white rounded-3xl shadow p-4 md:p-6 mt-4 md:mt-6 w-full h-64 md:h-96'>
+
+			{/* Kunlik hisobot bo‘limi */}
+			<div className='bg-white rounded-3xl shadow md:p-6 mt-6 p-6 h-64 md:h-96 !pb-10'>
 				<h3 className='font-semibold text-black'>Kunlik hisobot</h3>
 				<Line data={chartData} options={chartOptions} />
 			</div>

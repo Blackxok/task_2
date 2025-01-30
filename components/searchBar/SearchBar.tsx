@@ -11,7 +11,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder = 'Search...', classN
 	return (
 		<div
 			className={classNames(
-				'h-[56px] px-5 py-2 bg-gray-200 rounded-full flex items-center shadow-sm space-x-2',
+				'h-10 px-5 py-2 bg-gray-200 rounded-full flex items-center shadow-sm space-x-2',
 				className,
 			)}
 		>

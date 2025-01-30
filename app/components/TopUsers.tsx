@@ -11,14 +11,14 @@ const TopUsers: FC<TopUsersProps> = ({ users }) => {
 		<div className='bg-white shadow p-4 md:p-5 rounded-3xl h-full'>
 			<h3 className='font-semibold mb-3'>Top mahsulotlar</h3>
 			<div className='space-y-2'>
-				{/* Table Header */}
+				{/* Jadval sarlavhasi */}
 				<div className='flex items-center justify-between py-2'>
 					<p className='text-sm md:text-base'>Maxsulot</p>
-					<p className='text-sm md:text-base'>kod</p>
-					<p className='text-sm md:text-base'>sotish</p>
+					<p className='text-sm md:text-base'>Kod</p>
+					<p className='text-sm md:text-base'>Sotish</p>
 				</div>
 
-				{/* User List */}
+				{/* Foydalanuvchi ro‘yxati */}
 				{users.map((user, index) => (
 					<div
 						key={index}
@@ -27,14 +27,14 @@ const TopUsers: FC<TopUsersProps> = ({ users }) => {
 						<div className='flex items-center'>
 							<Image
 								src='/next.svg'
-								className='w-6 h-6 md:w-8 md:h-8 bg-gray-200 rounded-full'
+								className='w-8 h-8 bg-gray-200 rounded-full'
 								alt='user'
-								width={8}
-								height={8}
+								width={32}
+								height={32}
 							/>
-							<p className='font-medium text-sm md:text-base ml-3 md:ml-5'>{user.name}</p>
+							<p className='font-medium text-sm md:text-base ml-4'>{user.name}</p>
 						</div>
-						<p className='text-sm mr-4 md:mr-8'>{user.code}</p>
+						<p className='text-sm'>{user.code}</p>
 						<span className='text-sm font-medium'>{user.amount}</span>
 					</div>
 				))}
