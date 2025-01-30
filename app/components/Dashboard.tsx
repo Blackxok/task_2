@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
 		<div className='min-h-screen p-2 md:p-4'>
 			<div className='grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6'>
 				<div className='col-span-1 md:col-span-6 space-y-4'>
-					<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4'>
+					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4'>
 						{stats.map(stat => (
 							<StatCard key={stat.title} data={stat} />
 						))}
