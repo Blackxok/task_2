@@ -1,3 +1,4 @@
+import clsx from 'clsx' // Dynamic class merging
 import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '../ui/button'
@@ -6,7 +7,11 @@ interface FiltersState {
 	selectedFilter: 'arzon' | 'qimmat' | 'sifatli' | 'yangi' | 'saqlash' | null
 }
 
-const CategoryButton: React.FC = () => {
+interface CategoryButtonProps {
+	className?: string
+}
+
+const CategoryButton: React.FC<CategoryButtonProps> = ({ className }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [selectedFilters, setSelectedFilters] = useState<FiltersState>({
 		selectedFilter: null,
@@ -21,7 +26,7 @@ const CategoryButton: React.FC = () => {
 	}
 
 	return (
-		<div className='relative'>
+		<div className={clsx('relative', className)}>
 			<Button
 				className='flex items-center gap-2 bg-white rounded-full px-4 py-1 shadow hover:bg-gray-100 hover:text-gray-800'
 				onClick={toggleModal}
@@ -32,7 +37,7 @@ const CategoryButton: React.FC = () => {
 
 			{/* Modal */}
 			{isModalOpen && (
-				<div className='absolute transform translate-x-[-50%] mt-2 bg-white border border-gray-700 rounded-3xl  w-72 z-50 p-5'>
+				<div className='absolute transform translate-x-[-50%] mt-2 bg-white border border-gray-700 rounded-3xl w-72 z-50 p-5'>
 					<h2 className='text-xl font-semibold mb-4 px-6 text-center'>Kategoriyalar</h2>
 					<div className='flex flex-col gap-3'>
 						{['arzon', 'qimmat', 'sifatli', 'yangi', 'saqlash'].map(filter => (

@@ -50,7 +50,7 @@ export default function Search() {
 					onKeyDown={handleKeyDown}
 					className='ml-3 flex-grow bg-transparent outline-none text-gray-700'
 				/>
-				<CategoryButton />
+				<CategoryButton className='hidden sm:block' />
 			</div>
 			{searchTerm && (
 				<div className='absolute bg-gray-200 rounded-3xl shadow-md mt-2 w-full max-h-60 overflow-y-auto z-10'>

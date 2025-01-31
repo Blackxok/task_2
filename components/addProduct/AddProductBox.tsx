@@ -15,7 +15,7 @@ const AddProductBox: React.FC = () => {
 
 	return (
 		<div className={clsx('bg-white rounded-3xl p-6 shadow-lg relative overflow-hidden h-full')}>
-			<div className='mb-4 flex items-center justify-center bg-slate-200 rounded-3xl w-full aspect-[4/3]'>
+			<div className=' flex items-center justify-center bg-slate-200 rounded-3xl w-full aspect-[4/3]'>
 				<FaPlus size={145} />
 			</div>
 			<div className='relative'>

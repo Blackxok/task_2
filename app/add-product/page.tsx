@@ -12,16 +12,17 @@ export default function AddProductPage() {
 	return (
 		<div>
 			<Search />
-			<div className='flex items-center flex-col gap-5 mt-5'>
-				<div className='w-full flex flex-col gap-5 md:flex-row md:gap-10'>
-					<div className='w-full md:w-1/2'>
-						<AddProductBox />
-					</div>
-					<div className='w-full md:w-1/2'>
-						<ProductBox product={highestRatedProduct} />
-					</div>
+			<div className='w-full flex flex-wrap max-h-min mt-2'>
+				{/* First column */}
+				<div className='w-1/3 px-2'>
+					<AddProductBox />
 				</div>
-				<div className='w-full'>
+				{/* Second column */}
+				<div className='w-1/3 px-2'>
+					<ProductBox product={highestRatedProduct} className='h-full' />
+				</div>
+				{/* Third column */}
+				<div className='w-1/3 px-2'>
 					<EditProduct title='Mavjud mahsulotlarni tahrirlash' />
 				</div>
 			</div>
