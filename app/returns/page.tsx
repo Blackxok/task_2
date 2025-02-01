@@ -1,9 +1,9 @@
 'use client'
 import ProductBox from '@/components/productBox/productBox'
 import Search from '@/components/search/search'
+import { products } from '@/constants/product'
 import { useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
-import { products } from '../constants/product'
 
 import {
 	CategoryScale,

@@ -1,5 +1,5 @@
 import Search from '@/components/search/search'
-import { products } from '../constants/product'
+import { products } from '@/constants/product'
 import ReturnsLeft from './ReturnsLeft'
 
 export default function NotificationsPage() {

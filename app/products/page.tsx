@@ -1,9 +1,9 @@
 'use client'
 import ProductBox from '@/components/productBox/productBox'
 import Search from '@/components/search/search'
+import { products } from '@/constants/product'
 import { useState } from 'react'
-import { products } from '../constants/product'
-import { IProduct } from '../types'
+import { IProduct } from '../../types'
 
 const categories = [
 	'Barchasi', // Yangi qo'shilgan kategoriya

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { FC } from 'react'
-import { TopUser } from '../types'
+import { TopUser } from '../../../../types'
 
 interface TopUsersProps {
 	users: TopUser[]

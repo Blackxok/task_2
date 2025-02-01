@@ -11,7 +11,7 @@ import {
 	Tooltip,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import { IStatCard as StatCardType, TopUser } from '../types'
+import { IStatCard as StatCardType, TopUser } from '../../../../types'
 import StatCard from './StatCard'
 import TopUsers from './TopUsers'
 

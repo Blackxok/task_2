@@ -1,7 +1,7 @@
 import Navbar from '@/components/navbar/navbar'
 import type { Metadata } from 'next'
 import '../styles/globals.css'
-import Sidebar from './components/Sidebar'
+import Sidebar from './(root)/(home)/_components/Sidebar'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',

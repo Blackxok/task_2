@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import classNames from 'classnames'
 import Image from 'next/image'
 import React from 'react'
-import { IProduct } from '../types'
+import { IProduct } from '../../types'
 
 type ReturnsLeftProps = {
 	products: IProduct[] // Adjust this to your actual product type

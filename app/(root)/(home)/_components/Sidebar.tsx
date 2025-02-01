@@ -1,8 +1,8 @@
 'use client'
+import { MENU_ITEMS } from '@/constants/menu'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { MENU_ITEMS } from '../constants/menu'
 
 const Sidebar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false)

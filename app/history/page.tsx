@@ -1,6 +1,6 @@
 import Search from '@/components/search/search'
-import { products } from '../constants/product'
 import HistoryPage from './HistoryPage'
+import { products } from '@/constants/product'
 
 function History() {
 	return (

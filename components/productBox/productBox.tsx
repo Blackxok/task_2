@@ -1,4 +1,4 @@
-import { IProduct } from '@/app/types'
+import { IProduct } from '@/types'
 import clsx from 'clsx' // Dynamic class merging
 import Image from 'next/image'
 import React from 'react'
