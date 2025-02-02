@@ -7,14 +7,8 @@ import SearchBar from '../searchBar/SearchBar'
 const Navbar: React.FC = () => {
 	return (
 		<nav className='flex flex-col md:flex-row justify-between items-center px-4 md:px-8 py-3 bg-transparent border-b border-gray-200 text-gray-800 space-y-3 md:space-y-0'>
-			{/* Logo and Mobile Icons */}
 			<div className='flex flex-row w-full md:w-auto justify-between items-center'>
 				<a href={'/'}>
-					{/* <img
-						src='/logo.png'
-						alt='Logo'
-						className='w-[100px] md:w-55 h-10 rounded-full'
-					/> */}
 					<FaLaptopCode className='w-16 md:w-55 h-10 rounded-full md:block hidden' />
 				</a>
 				{/* Mobile Icons */}
@@ -41,8 +35,6 @@ const Navbar: React.FC = () => {
 				<span className='text-sm font-medium text-gray-500'>#12345</span>
 			</div>
 
-			{/* Search Bar and Icons */}
-			{/*  */}
 			<div className='flex flex-col md:flex-row items-center w-full md:w-auto justify-between space-y-3 md:space-y-0 md:space-x-4'>
 				<SearchBar />
 				<div className='hidden md:w-[200px] h-10 bg-gray-200 md:flex items-center justify-between px-4 rounded-full'>
@@ -55,10 +47,10 @@ const Navbar: React.FC = () => {
 							<FaCartShopping className='text-xl text-gray-600' />
 						</Button>
 					</div>
-					<Avatar className=' w-9 h-9 border border-gray-400 bg-slate-50 cursor-pointer flex items-center justify-center'>
+					<Button className='w-9 h-9 border border-gray-400 bg-slate-50 rounded-full'>
 						<FaUser />
 						{/* <AvatarImage src='/dolar.svg' alt='User Avatar' /> */}
-					</Avatar>
+					</Button>
 				</div>
 			</div>
 		</nav>

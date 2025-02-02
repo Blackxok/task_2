@@ -7,7 +7,10 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FaFacebookF, FaGoogle } from 'react-icons/fa6'
 
-const LoginPage = () => {
+interface LoginPageProps {
+	setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
+}
+const LoginPage: React.FC<LoginPageProps> = ({ setIsAuth }) => {
 	const [number, setNumber] = useState('')
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
@@ -42,14 +45,19 @@ const LoginPage = () => {
 
 	// 		if (response.ok) {
 	// 			router.push('/dashboard')
+	// 			setNumber('')
+	// 			setPassword('')
 	// 		} else {
 	// 			setError(data.message || 'Invalid phone number or password')
 	// 		}
 	// 	} catch (err) {
 	// 		console.error('Error occurred:', err)
 	// 		setError('Server error. Please try again later.')
+	// 		setNumber('')
+	// 		setPassword('')
 	// 	}
 	// }
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setError('')
@@ -81,10 +89,12 @@ const LoginPage = () => {
 				// Taxminiy token yaratish
 				const token = 'fake-token-' + Math.random().toString(36).slice(2) // Random token yaratish
 				localStorage.setItem('authToken', token) // LocalStorage-ga token saqlash
-
+				setIsAuth(true)
 				console.log('Token saved to localStorage:', token)
 
 				router.push('/dashboard')
+				setNumber('')
+				setPassword('')
 			} else {
 				setError(data.message || 'Invalid phone number or password')
 			}
