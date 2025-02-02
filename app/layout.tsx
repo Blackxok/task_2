@@ -16,7 +16,7 @@ export default function RootLayout({
 	useEffect(() => {
 		const token = localStorage.getItem('authToken')
 		if (token) {
-			setIsAuth(true) // Agar token mavjud bo'lsa, foydalanuvchi tizimga kirgan deb hisoblanadi
+			setIsAuth(true) 
 		}
 	}, [])
 
