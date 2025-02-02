@@ -1,5 +1,4 @@
 'use client'
-
 import { AuthProvider } from '@/context/AuthContext'
 import Head from 'next/head'
 import '../styles/globals.css'
