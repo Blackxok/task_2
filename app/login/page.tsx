@@ -3,60 +3,17 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { useAuth } from '@/context/AuthContext' // AuthContext dan import qilamiz
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FaFacebookF, FaGoogle } from 'react-icons/fa6'
 
-interface LoginPageProps {
-	setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
-}
-const LoginPage: React.FC<LoginPageProps> = ({ setIsAuth }) => {
+const LoginPage: React.FC = () => {
 	const [number, setNumber] = useState('')
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
 	const router = useRouter()
-
-	// const handleSubmit = async (e: React.FormEvent) => {
-	// 	e.preventDefault()
-	// 	setError('')
-	// 	console.log('Form submitted', { number, password })
-
-	// 	if (!number || !password) {
-	// 		setError('Please fill in all fields')
-	// 		return
-	// 	}
-
-	// 	try {
-	// 		console.log('Sending request to backend...')
-	// 		const response = await fetch('https://newera1.pythonanywhere.com/account/login/', {
-	// 			method: 'POST',
-	// 			headers: {
-	// 				'Content-Type': 'application/json',
-	// 			},
-	// 			body: JSON.stringify({
-	// 				phone_number: number,
-	// 				password: password,
-	// 			}),
-	// 		})
-	// 		console.log('Response received:', response)
-
-	// 		const data = await response.json()
-	// 		console.log('Backend Data:', data)
-
-	// 		if (response.ok) {
-	// 			router.push('/dashboard')
-	// 			setNumber('')
-	// 			setPassword('')
-	// 		} else {
-	// 			setError(data.message || 'Invalid phone number or password')
-	// 		}
-	// 	} catch (err) {
-	// 		console.error('Error occurred:', err)
-	// 		setError('Server error. Please try again later.')
-	// 		setNumber('')
-	// 		setPassword('')
-	// 	}
-	// }
+	const { setIsAuth } = useAuth() // AuthContext orqali setIsAuth olish
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
@@ -87,12 +44,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ setIsAuth }) => {
 
 			if (response.ok) {
 				// Taxminiy token yaratish
-				const token = 'fake-token-' + Math.random().toString(36).slice(2) // Random token yaratish
+				const token = 'fake-token-' + Math.random().toString(36).slice(2)
 				localStorage.setItem('authToken', token) // LocalStorage-ga token saqlash
-				setIsAuth(true)
+				setIsAuth(true) // AuthContext orqali autentifikatsiyani o‘zgartirish
 				console.log('Token saved to localStorage:', token)
 
-				router.push('/dashboard')
+				router.push('/dashboard') // Dashboard sahifasiga yo‘naltirish
 				setNumber('')
 				setPassword('')
 			} else {
@@ -113,7 +70,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ setIsAuth }) => {
 					<form onSubmit={handleSubmit} className='flex flex-col gap-4'>
 						<Input
 							className='border-none bg-slate-200 !placeholder-gray-400'
-							type='tel' // Telefon raqami uchun 'tel' turi
+							type='tel'
 							placeholder='Phone number or ID'
 							value={number}
 							onChange={e => setNumber(e.target.value)}
