@@ -15,7 +15,7 @@ export default function IndexPage({ children }: { children?: React.ReactNode }) 
 					<Navbar />
 					<div className='flex flex-col md:flex-row flex-1 px-2 md:px-[10px]'>
 						<Sidebar />
-						<main className='flex-1 overflow-y-auto p-6'>{children || 'Dashboard Content'}</main>
+						<main className='flex-1 overflow-y-auto p-6'>{children}</main>
 					</div>
 				</div>
 			) : (

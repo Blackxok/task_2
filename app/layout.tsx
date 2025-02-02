@@ -13,7 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			</Head>
 			<body className='antialiased min-h-screen'>
 				<AuthProvider>
-					<IndexPage>{children}</IndexPage>
+					<IndexPage children={children} />
 				</AuthProvider>
 			</body>
 		</html>
