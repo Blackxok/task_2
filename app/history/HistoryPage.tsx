@@ -10,7 +10,7 @@ type HistoryPageProps = {
 
 const HistoryPage: React.FC<HistoryPageProps> = ({ products }) => {
 	if (!products || !Array.isArray(products)) {
-		return <div>Malumot yo'q</div>
+		return <div>Malumot yoq</div>
 	}
 
 	return (

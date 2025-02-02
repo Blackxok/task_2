@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import { FaPencil } from 'react-icons/fa6'
 
 export default function ProfileContent() {
@@ -10,7 +11,7 @@ export default function ProfileContent() {
 			{/* Profile Section */}
 			<div className='flex items-center p-4 border border-gray-200 rounded-3xl  mb-6'>
 				{/* Profile Image */}
-				<img
+				<Image
 					src='/next.svg'
 					alt='avatar'
 					className='w-16 h-16 rounded-full border border-gray-300 mr-4'

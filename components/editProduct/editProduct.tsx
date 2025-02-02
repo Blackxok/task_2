@@ -46,7 +46,7 @@ const EditProduct: React.FC<EditProductProps> = ({ title }) => {
 						variant='outline'
 						className='w-full sm:w-32 rounded-full border-2 border-black text-black hover:border-blue-600 hover:bg-blue-600 hover:text-white'
 					>
-						O'chirish
+						Ochirish
 					</Button>
 					<Button
 						variant='outline'

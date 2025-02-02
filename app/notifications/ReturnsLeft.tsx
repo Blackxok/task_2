@@ -14,7 +14,7 @@ type ReturnsLeftProps = {
 
 const ReturnsLeft: React.FC<ReturnsLeftProps> = ({ products, name, buttonStyle }) => {
 	if (!products || !Array.isArray(products)) {
-		return <div>Malumot yo'q</div>
+		return <div>Malumot yoq</div>
 	}
 	const filteredProducts = products.filter(product => product.remaining < 100)
 
