@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster'
 import { AuthProvider } from './context/AuthContext'
 import './styles/globals.css'
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -5,6 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en'>
 			<body>
 				<AuthProvider>{children}</AuthProvider>
+				<Toaster />
 			</body>
 		</html>
 	)
