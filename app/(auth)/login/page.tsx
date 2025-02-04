@@ -48,7 +48,7 @@ export default function LoginPage() {
 			}
 		} catch (err) {
 			console.error('Error:', err)
-			setError('Server error. Please try again later.')
+			setError('Server error. Please try again later. Login!!')
 		} finally {
 			setIsLoading(false)
 		}
