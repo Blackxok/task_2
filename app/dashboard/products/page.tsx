@@ -15,7 +15,7 @@ const categories = [
 	'Oyinchoqlar',
 ]
 
-export default function page() {
+export default function Page() {
 	const [selectedCategory, setSelectedCategory] = useState<string>('Barchasi')
 
 	const handleCategoryClick = (category: string) => {

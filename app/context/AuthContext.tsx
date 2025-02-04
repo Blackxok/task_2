@@ -2,7 +2,7 @@
 
 import { useToast } from '@/hooks/use-toast'
 import { useRouter } from 'next/navigation'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { AuthContextType, UserType } from '../types/authContext'
 
 // Cookie utilitalar
@@ -85,54 +85,80 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	}
 
 	// User ma'lumotlarini olish
-	const fetchUserData = async (token: string) => {
-		try {
-			const response = await fetch(`${API_URL}/company/me/`, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-					'Content-Type': 'application/json',
-				},
-			})
+	const fetchUserData = useCallback(
+		async (token: string) => {
+			try {
+				const response = await fetch(`${API_URL}/company/me/`, {
+					headers: {
+						Authorization: `Bearer ${token}`,
+						'Content-Type': 'application/json',
+					},
+				})
 
-			if (response.status === 401) {
-				// Token eskirgan bo'lsa, yangilashga harakat qilamiz
-				const refreshToken = Cookies.get('refresh_token')
-				if (refreshToken) {
-					const newToken = await refreshAccessToken(refreshToken)
-					return fetchUserData(newToken)
-				} else {
-					throw new Error('Refresh token mavjud emas')
+				if (response.status === 401) {
+					// Token eskirgan bo'lsa, yangilashga harakat qilamiz
+					const refreshToken = Cookies.get('refresh_token')
+					if (refreshToken) {
+						const newToken = await refreshAccessToken(refreshToken)
+						return fetchUserData(newToken)
+					} else {
+						throw new Error('Refresh token mavjud emas')
+					}
 				}
-			}
 
-			if (!response.ok) {
-				const errorData = await response.json()
-				console.error('Foydalanuvchi malumotlarini olishda xatolik:', errorData)
+				if (!response.ok) {
+					const errorData = await response.json()
+					console.error('Foydalanuvchi malumotlarini olishda xatolik:', errorData)
+					toast({
+						variant: 'destructive',
+						title: 'Xatolik',
+						description: 'Foydalanuvchi malumotlarini olishda xatolik yuz berdi',
+					})
+					throw new Error(errorData.message || 'Server xatosi')
+				}
+
+				const userData = await response.json()
+				console.log("Foydalanuvchi ma'lumotlari:", userData)
+				setUser(userData)
+				// toast({
+				// 	title: 'Muvaffaqiyatli',
+				// 	description: 'Xush kelibsiz!',
+				// })
+			} catch (error) {
+				console.error("Foydalanuvchi ma'lumotlarini olishda xatolik:", error)
 				toast({
 					variant: 'destructive',
 					title: 'Xatolik',
-					description: 'Foydalanuvchi malumotlarini olishda xatolik yuz berdi',
+					description: 'Serverda xatolik yuz berdi',
 				})
-				throw new Error(errorData.message || 'Server xatosi')
+				throw error
 			}
-
-			const userData = await response.json()
-			console.log("Foydalanuvchi ma'lumotlari:", userData)
-			setUser(userData)
-			// toast({
-			// 	title: 'Muvaffaqiyatli',
-			// 	description: 'Xush kelibsiz!',
-			// })
+		},
+		[toast],
+	)
+	
+	// Logout funksiyasi
+	const logout = useCallback(() => {
+		try {
+			Cookies.remove('access_token')
+			Cookies.remove('refresh_token')
+			setIsAuth(false)
+			setUser(null)
+			router.push('/login')
+			toast({
+				title: 'Muvaffaqiyatli',
+				description: 'Tizimdan chiqildi',
+			})
+			console.log('Logout muvaffaqiyatli')
 		} catch (error) {
-			console.error("Foydalanuvchi ma'lumotlarini olishda xatolik:", error)
+			console.error('Logout jarayonida xatolik:', error)
 			toast({
 				variant: 'destructive',
 				title: 'Xatolik',
-				description: 'Serverda xatolik yuz berdi',
+				description: 'Tizimdan chiqishda xatolik yuz berdi',
 			})
-			throw error
 		}
-	}
+	}, [router, toast])
 
 	// Dastur ishga tushganda auth holatini tekshirish
 	useEffect(() => {
@@ -161,7 +187,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		}
 
 		checkAuth()
-	}, [])
+	}, [fetchUserData, logout])
 
 	// Cookie o'zgarishlarini kuzatish
 	useEffect(() => {
@@ -201,29 +227,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 				variant: 'destructive',
 				title: 'Xatolik',
 				description: 'Tizimga kirishda xatolik yuz berdi',
-			})
-		}
-	}
-
-	// Logout funksiyasi
-	const logout = () => {
-		try {
-			Cookies.remove('access_token')
-			Cookies.remove('refresh_token')
-			setIsAuth(false)
-			setUser(null)
-			router.push('/login')
-			toast({
-				title: 'Muvaffaqiyatli',
-				description: 'Tizimdan chiqildi',
-			})
-			console.log('Logout muvaffaqiyatli')
-		} catch (error) {
-			console.error('Logout jarayonida xatolik:', error)
-			toast({
-				variant: 'destructive',
-				title: 'Xatolik',
-				description: 'Tizimdan chiqishda xatolik yuz berdi',
 			})
 		}
 	}

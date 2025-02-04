@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const PROTECTED_ROUTES = ['/dashboard', '/profile', '/settings', '/admin']
-const PUBLIC_ROUTES = ['/', '/login', '/register', '/forgot-password']
 const BYPASS_ROUTES = ['/_next/static', '/_next/image', '/favicon.ico', '/api/auth']
 
 export function middleware(request: NextRequest) {
@@ -16,7 +15,6 @@ export function middleware(request: NextRequest) {
 	}
 
 	const isProtectedRoute = PROTECTED_ROUTES.some(route => path.startsWith(route))
-	const isPublicRoute = PUBLIC_ROUTES.includes(path)
 
 	if (isProtectedRoute) {
 		if (!token) {
