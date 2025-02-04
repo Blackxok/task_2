@@ -1,9 +1,10 @@
-export type AuthContextType = {
+export interface AuthContextType {
 	isAuth: boolean
-	setIsAuth: (auth: boolean) => void
+	setIsAuth: (isAuth: boolean) => void
 	logout: () => void
 	login: (access_token: string, refresh_token: string) => void
 	user: UserType | null
+	refreshAccessToken: (refreshToken: string) => Promise<string>
 }
 
 export type UserType = {
