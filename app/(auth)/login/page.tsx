@@ -81,7 +81,7 @@ export default function LoginPage() {
 			console.log('Sending request with options:', requestOptions)
 
 			const response = await fetch(
-				`https://newera1.pythonanywhere.com/account/login/`,
+				`${process.env.NEXT_PUBLIC_API_URL}/account/login/`,
 				requestOptions,
 			)
 			console.log('Response status:', response.status)

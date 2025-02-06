@@ -4,7 +4,7 @@ import Cookies from './cookieUtils'
 
 export const refreshAccessToken = async (refreshToken: string) => {
 	try {
-		const response = await fetch(`https://newera1.pythonanywhere.com/auth/token/refresh/`, {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/token/refresh/`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export const refreshAccessToken = async (refreshToken: string) => {
 
 export const fetchUserData = async (token: string): Promise<UserType> => {
 	try {
-		const response = await fetch(`https://newera1.pythonanywhere.com/company/me/`, {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/company/me/`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 				'Content-Type': 'application/json',
