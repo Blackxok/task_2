@@ -15,6 +15,45 @@ export default function LoginPage() {
 	const router = useRouter()
 	const { login } = useAuth()
 
+	// const handleSubmit = async (e: React.FormEvent) => {
+	// 	e.preventDefault()
+	// 	setError('')
+	// 	setIsLoading(true)
+
+	// 	if (!phoneNumber || !password) {
+	// 		setError('Please fill in all fields')
+	// 		setIsLoading(false)
+	// 		return
+	// 	}
+
+	// 	try {
+	// 		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account/login/`, {
+	// 			method: 'POST',
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 			},
+	// 			body: JSON.stringify({
+	// 				phone_number: phoneNumber,
+	// 				password: password,
+	// 			}),
+	// 		})
+
+	// 		const data = await response.json()
+
+	// 		if (response.ok) {
+	// 			login(data.access_token, data.refresh_token)
+	// 			router.push('/dashboard')
+	// 		} else {
+	// 			setError(data.message || 'Invalid credentials')
+	// 		}
+	// 	} catch (err) {
+	// 		console.error('Error:', err)
+	// 		setError('Server error. Please try again later. Login!!')
+	// 	} finally {
+	// 		setIsLoading(false)
+	// 	}
+	// }
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setError('')
@@ -26,34 +65,55 @@ export default function LoginPage() {
 			return
 		}
 
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: JSON.stringify({
+				phone_number: phoneNumber,
+				password: password,
+			}),
+		}
+
 		try {
-			const response = await fetch('https://newera1.pythonanywhere.com/account/login/', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					phone_number: phoneNumber,
-					password: password,
-				}),
-			})
+			// Response ni olishdan oldin console.log qilamiz
+			console.log('Sending request with options:', requestOptions)
+
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_API_URL}/account/login/`,
+				requestOptions,
+			)
+
+			// Status va response haqida ma'lumot
+			console.log('Response status:', response.status)
+			console.log('Response headers:', response.headers)
 
 			const data = await response.json()
+			console.log('Response data:', data)
 
 			if (response.ok) {
 				login(data.access_token, data.refresh_token)
 				router.push('/dashboard')
 			} else {
-				setError(data.message || 'Invalid credentials')
+				// Xatolik xabarini aniqroq ko'rsatamiz
+				setError(data.detail || data.message || 'Login failed. Please check your credentials.')
 			}
 		} catch (err) {
-			console.error('Error:', err)
-			setError('Server error. Please try again later. Login!!')
+			// Xatolikni to'liqroq loglaymiz
+			console.error('Full error object:', err)
+
+			// Foydalanuvchiga aniqroq xabar ko'rsatamiz
+			if (err instanceof TypeError && err.message === 'Failed to fetch') {
+				setError('Unable to connect to the server. Please check your internet connection.')
+			} else {
+				setError(`Error: ${err}`)
+			}
 		} finally {
 			setIsLoading(false)
 		}
 	}
-
 	return (
 		<div className='flex items-center justify-center min-h-screen'>
 			<Card className='w-96 p-6 shadow-lg border-none'>

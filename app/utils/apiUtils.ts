@@ -2,11 +2,9 @@ import { toast } from '@/hooks/use-toast'
 import { UserType } from '../types/authContext'
 import Cookies from './cookieUtils'
 
-const API_URL = 'https://newera1.pythonanywhere.com'
-
 export const refreshAccessToken = async (refreshToken: string) => {
 	try {
-		const response = await fetch(`${API_URL}/auth/token/refresh/`, {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/token/refresh/`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -29,7 +27,7 @@ export const refreshAccessToken = async (refreshToken: string) => {
 
 export const fetchUserData = async (token: string): Promise<UserType> => {
 	try {
-		const response = await fetch(`${API_URL}/company/me/`, {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/company/me/`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 				'Content-Type': 'application/json',
