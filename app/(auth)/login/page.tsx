@@ -78,18 +78,14 @@ export default function LoginPage() {
 		}
 
 		try {
-			// Response ni olishdan oldin console.log qilamiz
 			console.log('Sending request with options:', requestOptions)
 
 			const response = await fetch(
-				`${process.env.NEXT_PUBLIC_API_URL}/account/login/`,
+				`https://newera1.pythonanywhere.com/account/login/`,
 				requestOptions,
 			)
-
-			// Status va response haqida ma'lumot
 			console.log('Response status:', response.status)
 			console.log('Response headers:', response.headers)
-
 			const data = await response.json()
 			console.log('Response data:', data)
 
@@ -97,11 +93,9 @@ export default function LoginPage() {
 				login(data.access_token, data.refresh_token)
 				router.push('/dashboard')
 			} else {
-				// Xatolik xabarini aniqroq ko'rsatamiz
 				setError(data.detail || data.message || 'Login failed. Please check your credentials.')
 			}
 		} catch (err) {
-			// Xatolikni to'liqroq loglaymiz
 			console.error('Full error object:', err)
 
 			// Foydalanuvchiga aniqroq xabar ko'rsatamiz
